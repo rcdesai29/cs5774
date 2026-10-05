@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browse games | RecPickup</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="home-signed-in.html">RecPickup</a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="home-signed-in.html">Home</a></li>
+          <li><a href="list.html" aria-current="page">Browse</a></li>
+          <li><a href="add.html">Post</a></li>
+          <li><a href="home-signed-in.html#your-stats">Profile</a></li>
+        </ul>
+      </nav>
+      <a class="account-link" href="index.html">Sign out</a>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <h1>Browse games</h1>
+
+    <div class="list-toolbar">
+      <form class="search-form" action="search.html" method="get" role="search">
+        <label class="visually-hidden" for="list-search">Search games</label>
+        <input type="search" id="list-search" name="q" placeholder="Try &ldquo;tennis&rdquo;">
+        <button type="submit" class="btn">Search</button>
+      </form>
+      <div class="sort-control">
+        <label class="visually-hidden" for="sort">Sort results</label>
+        <select id="sort" name="sort">
+          <option selected>Sort: Soonest first</option>
+          <option>Sort: Most open spots</option>
+          <option>Sort: Recently posted</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="browse-layout">
+      <aside class="filters" aria-labelledby="filters-heading">
+        <h2 id="filters-heading">Filters</h2>
+        <form action="list.html" method="get">
+          <div class="field">
+            <label for="filter-sport">Sport</label>
+            <select id="filter-sport" name="sport">
+              <option selected>All sports</option>
+              <option>Basketball</option>
+              <option>Soccer</option>
+              <option>Tennis</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="filter-date">Date</label>
+            <select id="filter-date" name="date">
+              <option selected>Any day</option>
+              <option>Mon, Sep 28</option>
+              <option>Tue, Sep 29</option>
+              <option>Wed, Sep 30</option>
+              <option>Thu, Oct 1</option>
+              <option>Fri, Oct 2</option>
+              <option>Sat, Oct 3</option>
+              <option>Sun, Oct 4</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="filter-court">Court</label>
+            <select id="filter-court" name="court">
+              <option selected>Any court</option>
+              <option>Court 1, North Gym</option>
+              <option>Court 2, North Gym</option>
+              <option>Court 3, North Gym</option>
+              <option>Court 4, South Gym</option>
+              <option>Turf Field, Field House</option>
+              <option>Tennis Court 1, Tennis Center</option>
+              <option>Tennis Court 2, Tennis Center</option>
+              <option>Tennis Court 3, Tennis Center</option>
+            </select>
+          </div>
+          <div class="checkbox-field">
+            <input type="checkbox" id="filter-open" name="open">
+            <label for="filter-open">Only games with open spots</label>
+          </div>
+          <div class="filter-actions">
+            <button type="submit" class="btn btn-primary">Apply</button>
+            <button type="reset" class="btn">Clear filters</button>
+          </div>
+        </form>
+      </aside>
+
+      <section aria-labelledby="results-heading">
+        <div class="results-header">
+          <h2 id="results-heading" class="small-heading">Results</h2>
+          <p class="section-note">1&ndash;6 of 14 games, soonest first</p>
+        </div>
+
+        <ul class="game-list">
+          <li class="game">
+            <div class="game-info">
+              <p class="game-sport">Basketball</p>
+              <h3 class="game-time"><a href="detail.html">Mon, Sep 28, 6:00&ndash;7:30 pm</a></h3>
+              <p class="game-court">Court 1, North Gym</p>
+            </div>
+            <p class="game-count">7 of 10 joined</p>
+            <button type="button" class="btn game-action join-btn">Join</button>
+          </li>
+          <li class="game">
+            <div class="game-info">
+              <p class="game-sport">Soccer</p>
+              <h3 class="game-time"><a href="detail.html">Tue, Sep 29, 8:00&ndash;9:00 pm</a></h3>
+              <p class="game-court">Turf Field, Field House</p>
+            </div>
+            <p class="game-count">12 of 14 joined</p>
+            <button type="button" class="btn game-action join-btn">Join</button>
+          </li>
+          <li class="game">
+            <div class="game-info">
+              <p class="game-sport">Tennis</p>
+              <h3 class="game-time"><a href="detail.html">Wed, Sep 30, 5:00&ndash;6:30 pm</a></h3>
+              <p class="game-court">Tennis Court 1, Tennis Center</p>
+            </div>
+            <p class="game-count">4 of 4 joined</p>
+            <button type="button" class="btn game-action" disabled>Full</button>
+          </li>
+          <li class="game">
+            <div class="game-info">
+              <p class="game-sport">Basketball</p>
+              <h3 class="game-time"><a href="detail.html">Wed, Sep 30, 9:00&ndash;10:00 pm</a></h3>
+              <p class="game-court">Court 1, North Gym</p>
+            </div>
+            <p class="game-count">4 of 10 joined</p>
+            <button type="button" class="btn game-action join-btn">Join</button>
+          </li>
+          <li class="game">
+            <div class="game-info">
+              <p class="game-sport">Tennis</p>
+              <h3 class="game-time"><a href="detail.html">Thu, Oct 1, 7:00&ndash;8:30 pm</a></h3>
+              <p class="game-court">Tennis Court 3, Tennis Center</p>
+            </div>
+            <p class="game-count">3 of 4 joined</p>
+            <button type="button" class="btn game-action join-btn">Join</button>
+          </li>
+          <li class="game">
+            <div class="game-info">
+              <p class="game-sport">Soccer</p>
+              <h3 class="game-time"><a href="detail.html">Fri, Oct 2, 4:00&ndash;5:00 pm</a></h3>
+              <p class="game-court">Turf Field, Field House</p>
+            </div>
+            <p class="game-count">9 of 14 joined</p>
+            <button type="button" class="btn game-action join-btn">Join</button>
+          </li>
+        </ul>
+
+        <nav class="pagination" aria-label="Result pages">
+          <span class="is-disabled">Previous</span>
+          <ol>
+            <li><a href="list.html" aria-current="page">1</a></li>
+            <li><a href="list.html">2</a></li>
+            <li><a href="list.html">3</a></li>
+          </ol>
+          <a href="list.html">Next</a>
+        </nav>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="#">Hours</a></li>
+        <li><a href="#">Court map</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <p class="footer-note">Rec complex courts are open 6 am to 11 pm on weekdays and 8 am to 10 pm on weekends.</p>
+    </div>
+  </footer>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

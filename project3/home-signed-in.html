@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your games | RecPickup</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="home-signed-in.html">RecPickup</a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="home-signed-in.html" aria-current="page">Home</a></li>
+          <li><a href="list.html">Browse</a></li>
+          <li><a href="add.html">Post</a></li>
+          <li><a href="home-signed-in.html#your-stats">Profile</a></li>
+        </ul>
+      </nav>
+      <form class="search-form header-search" action="search.html" method="get" role="search">
+        <label class="visually-hidden" for="header-search">Search games</label>
+        <input type="search" id="header-search" name="q" placeholder="Try &ldquo;tennis&rdquo;">
+        <button type="submit" class="btn">Search</button>
+      </form>
+      <a class="account-link" href="index.html">Sign out</a>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <div class="welcome-header">
+      <h1>Welcome back, Maya</h1>
+      <a class="btn btn-primary" href="add.html">Post a game</a>
+    </div>
+
+    <section class="next-game" aria-labelledby="next-heading">
+      <div>
+        <h2 id="next-heading">Your next game</h2>
+        <p class="next-game-title">Tennis at Tennis Court 2</p>
+        <p>Sat, Oct 3, 10:00&ndash;11:30 am, Tennis Center</p>
+        <p class="joined-status">You're in. 3 of 4 joined.</p>
+      </div>
+      <div class="stacked-actions">
+        <a class="btn" href="detail.html">View game</a>
+        <button type="button" class="btn" aria-label="Drop out of tennis on Saturday, October 3">Drop out</button>
+      </div>
+    </section>
+
+    <div class="dashboard-layout">
+      <section aria-labelledby="upcoming-heading">
+        <div class="section-header">
+          <h2 id="upcoming-heading">Your upcoming games</h2>
+        </div>
+        <ul class="game-list">
+          <li class="game">
+            <div class="game-info">
+              <p class="game-sport">Soccer</p>
+              <h3 class="game-time"><a href="detail.html">Sun, Oct 4, 2:00&ndash;3:30 pm</a></h3>
+              <p class="game-court">Turf Field, Field House</p>
+            </div>
+            <p class="game-count">11 of 14 joined</p>
+            <button type="button" class="btn game-action" aria-label="Drop out of soccer on Sunday, October 4">Drop out</button>
+          </li>
+          <li class="game">
+            <div class="game-info">
+              <p class="game-sport">Tennis</p>
+              <h3 class="game-time"><a href="detail.html">Tue, Oct 6, 7:00&ndash;8:30 pm</a></h3>
+              <p class="game-court">Tennis Court 1, Tennis Center</p>
+            </div>
+            <p class="game-count">2 of 4 joined</p>
+            <button type="button" class="btn game-action" aria-label="Drop out of tennis on Tuesday, October 6">Drop out</button>
+          </li>
+          <li class="game">
+            <div class="game-info">
+              <p class="game-sport">Basketball</p>
+              <h3 class="game-time"><a href="detail.html">Thu, Oct 8, 6:00&ndash;7:30 pm</a></h3>
+              <p class="game-court">Court 1, North Gym</p>
+            </div>
+            <p class="game-count">5 of 10 joined</p>
+            <button type="button" class="btn game-action" aria-label="Drop out of basketball on Thursday, October 8">Drop out</button>
+          </li>
+        </ul>
+      </section>
+
+      <div class="side-column">
+        <section class="panel" id="your-stats" aria-labelledby="stats-heading">
+          <h2 id="stats-heading">Your stats</h2>
+          <div class="panel-box">
+            <dl class="stats">
+              <dt>Games joined this semester</dt>
+              <dd>14</dd>
+              <dt>Most played</dt>
+              <dd>Tennis</dd>
+              <dt>Status</dt>
+              <dd>Regular</dd>
+            </dl>
+            <p class="hint stats-note">Games you drop out of before they start don't count.</p>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="closures-heading">
+          <h2 id="closures-heading">Court closures</h2>
+          <div class="panel-box">
+            <ul class="closure-list">
+              <li class="closure">
+                <p class="closure-title">Court 4, South Gym</p>
+                <p>Closed Wed, Sep 30 for floor repair.</p>
+                <p class="closure-notice">Your basketball game on Wed, Sep 30 at 7:00 pm was canceled. <a href="list.html">Find another basketball game</a></p>
+                <!-- Image: Designed by jemastock / Freepik -->
+                <img class="closure-photo" src="images/basketball-court.jpg" alt="Illustration of a basketball court seen from above, with a light wood floor and white lines.">
+              </li>
+              <li class="closure">
+                <p class="closure-title">Turf Field, Field House</p>
+                <p>Closed Sat, Oct 10 for the club soccer tournament.</p>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="#">Hours</a></li>
+        <li><a href="#">Court map</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <p class="footer-note">Rec complex courts are open 6 am to 11 pm on weekdays and 8 am to 10 pm on weekends.</p>
+    </div>
+  </footer>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

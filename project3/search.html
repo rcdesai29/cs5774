@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search results | RecPickup</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="home-signed-in.html">RecPickup</a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="home-signed-in.html">Home</a></li>
+          <li><a href="list.html" class="is-current">Browse</a></li>
+          <li><a href="add.html">Post</a></li>
+          <li><a href="home-signed-in.html#your-stats">Profile</a></li>
+        </ul>
+      </nav>
+      <form class="search-form header-search" action="search.html" method="get" role="search">
+        <label class="visually-hidden" for="header-search">Search games</label>
+        <input type="search" id="header-search" name="q" placeholder="Try &ldquo;tennis&rdquo;">
+        <button type="submit" class="btn">Search</button>
+      </form>
+      <a class="account-link" href="index.html">Sign out</a>
+    </div>
+  </header>
+
+  <main id="main" class="container search-page">
+    <h1>Search results</h1>
+
+    <!-- js/main.js fills #search-results or adds a no-results box, based on ?q= -->
+    <section class="search-results" aria-labelledby="results-heading">
+      <div class="results-header">
+        <h2 id="results-heading" class="small-heading">Results</h2>
+        <p class="section-note" id="results-note"></p>
+      </div>
+      <ul class="game-list" id="search-results"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="#">Hours</a></li>
+        <li><a href="#">Court map</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <p class="footer-note">Rec complex courts are open 6 am to 11 pm on weekdays and 8 am to 10 pm on weekends.</p>
+    </div>
+  </footer>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

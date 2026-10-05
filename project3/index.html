@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Find a pickup game | RecPickup</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">RecPickup</a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="list.html">Browse</a></li>
+          <li><a href="add.html">Post</a></li>
+          <li><a href="home-signed-in.html#your-stats">Profile</a></li>
+        </ul>
+      </nav>
+      <a class="account-link" href="home-signed-in.html">Sign in</a>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="home-intro" aria-labelledby="page-title">
+      <h1 id="page-title">Find a pickup game</h1>
+      <form class="search-form" action="search.html" method="get" role="search">
+        <label class="visually-hidden" for="home-search">Search games</label>
+        <input type="search" id="home-search" name="q" placeholder="Try &ldquo;tennis&rdquo;">
+        <button type="submit" class="btn">Search</button>
+      </form>
+
+      <div class="sport-filter" role="group" aria-label="Show games for">
+        <button type="button" class="chip" aria-pressed="true">All</button>
+        <button type="button" class="chip" aria-pressed="false">Basketball</button>
+        <button type="button" class="chip" aria-pressed="false">Soccer</button>
+        <button type="button" class="chip" aria-pressed="false">Tennis</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="soon-heading">
+      <div class="section-header">
+        <h2 id="soon-heading">Games happening soon</h2>
+        <p class="section-note">All sports, next three days</p>
+      </div>
+
+      <ul class="game-grid">
+        <li class="game">
+          <div class="game-info">
+            <p class="game-sport">Basketball</p>
+            <h3 class="game-time"><a href="detail.html">Mon, Sep 28, 6:00&ndash;7:30 pm</a></h3>
+            <p class="game-court">Court 1, North Gym</p>
+          </div>
+          <p class="game-count">7 of 10 joined</p>
+          <button type="button" class="btn game-action">Join</button>
+        </li>
+        <li class="game">
+          <div class="game-info">
+            <p class="game-sport">Soccer</p>
+            <h3 class="game-time"><a href="detail.html">Tue, Sep 29, 8:00&ndash;9:00 pm</a></h3>
+            <p class="game-court">Turf Field, Field House</p>
+          </div>
+          <p class="game-count">12 of 14 joined</p>
+          <button type="button" class="btn game-action">Join</button>
+        </li>
+        <li class="game">
+          <div class="game-info">
+            <p class="game-sport">Tennis</p>
+            <h3 class="game-time"><a href="detail.html">Wed, Sep 30, 5:00&ndash;6:30 pm</a></h3>
+            <p class="game-court">Tennis Court 1, Tennis Center</p>
+          </div>
+          <p class="game-count">4 of 4 joined</p>
+          <button type="button" class="btn game-action" disabled>Full</button>
+        </li>
+      </ul>
+    </section>
+
+    <section class="signup-banner" aria-labelledby="signup-heading">
+      <div>
+        <h2 id="signup-heading">Sign up to post or join a game</h2>
+        <p>Anyone can browse. You need a student account to join a game or post your own.</p>
+      </div>
+      <div class="button-row">
+        <a class="btn" href="home-signed-in.html">Sign in</a>
+        <a class="btn btn-primary" href="home-signed-in.html">Create account</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="#">Hours</a></li>
+        <li><a href="#">Court map</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <p class="footer-note">Rec complex courts are open 6 am to 11 pm on weekdays and 8 am to 10 pm on weekends.</p>
+    </div>
+  </footer>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

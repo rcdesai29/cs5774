@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tennis, Thu Oct 1 at Tennis Court 3 | RecPickup</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="home-signed-in.html">RecPickup</a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="home-signed-in.html">Home</a></li>
+          <li><a href="list.html" class="is-current">Browse</a></li>
+          <li><a href="add.html">Post</a></li>
+          <li><a href="home-signed-in.html#your-stats">Profile</a></li>
+        </ul>
+      </nav>
+      <a class="account-link" href="index.html">Sign out</a>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <a class="back-link" href="list.html">Back to results</a>
+
+    <div class="game-header">
+      <div>
+        <p class="game-sport">Tennis</p>
+        <h1>Thu, Oct 1, 7:00&ndash;8:30 pm</h1>
+        <p class="game-court">Tennis Court 3, Tennis Center. Posted by Dani K.</p>
+      </div>
+      <div class="game-status">
+        <p class="spots">
+          <span class="spots-count">3 of 4 joined</span>
+          <span class="spots-needed">Needs 4 to play</span>
+        </p>
+        <button type="button" class="btn btn-primary">Join game</button>
+      </div>
+    </div>
+
+    <div class="detail-layout">
+      <div class="detail-main">
+        <section class="panel" aria-labelledby="notes-heading">
+          <h2 id="notes-heading">Notes</h2>
+          <div class="panel-box notes">
+            <p>Casual doubles and beginners are welcome. We switch partners after every set so everyone plays with everyone.</p>
+            <p>Bring your own racket. I'll bring a new can of balls.</p>
+            <p>If we don't have 4 people by 5:00 pm Thursday, I'll cancel and everyone on the roster gets a notification.</p>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="comments-heading">
+          <h2 id="comments-heading">Comments</h2>
+          <div class="comments">
+            <form class="comment-form" action="detail.html" method="get">
+              <label class="visually-hidden" for="comment-text">Add a comment</label>
+              <input type="text" id="comment-text" name="comment" placeholder="Add a comment">
+              <button type="submit" class="btn">Post</button>
+            </form>
+            <ol class="comment-list" aria-live="polite">
+              <li class="comment">
+                <p class="comment-author">Dani K. <time datetime="2026-09-29T21:12">Tue 9:12 pm</time></p>
+                <p>The court lights come on at dusk, so 7 is fine even once it gets dark.</p>
+              </li>
+              <li class="comment">
+                <p class="comment-author">Priya S. <time datetime="2026-09-30T13:40">Wed 1:40 pm</time></p>
+                <p>Is it okay if I show up around 7:15? My lab runs late on Thursdays.</p>
+              </li>
+              <li class="comment">
+                <p class="comment-author">Dani K. <time datetime="2026-09-30T14:05">Wed 2:05 pm</time></p>
+                <p>Yes, we'll warm up with some singles until you get here.</p>
+              </li>
+            </ol>
+          </div>
+        </section>
+      </div>
+
+      <div class="side-column">
+        <section class="panel" aria-labelledby="roster-heading">
+          <h2 id="roster-heading">Roster</h2>
+          <ul class="panel-box roster">
+            <li><span>Dani K.</span> <span class="roster-role">Organizer</span></li>
+            <li><span>Priya S.</span> <span class="roster-role">Regular</span></li>
+            <li><span>Marcus L.</span> <span class="roster-role">New player</span></li>
+          </ul>
+        </section>
+
+        <section class="panel" aria-labelledby="court-heading">
+          <h2 id="court-heading">Court</h2>
+          <div class="panel-box court-box">
+            <figure>
+              <!-- Image: Magnific (Freepik), free license -->
+              <img src="images/tennis-court.jpg" alt="Illustration of a tennis court seen from above, with a dark blue playing surface, white lines, and the net across the middle.">
+              <figcaption>Behind the Field House. Court 3 is the one closest to the parking lot.</figcaption>
+            </figure>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="#">Hours</a></li>
+        <li><a href="#">Court map</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <p class="footer-note">Rec complex courts are open 6 am to 11 pm on weekdays and 8 am to 10 pm on weekends.</p>
+    </div>
+  </footer>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
