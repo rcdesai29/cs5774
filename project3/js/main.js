@@ -1,27 +1,16 @@
 /*
- * RecPickup - Project 3 behavior (CS 5774)
- *
- * Loaded on every page after jQuery 3.7.1, so this one file serves all six
- * pages. All three setup functions run once the DOM is ready:
- *
- *   initSearchResults - search.html: simulated search (switch on keyphrase).
- *                       Returns early on pages without #search-results.
- *   initJoinButtons   - Join (click, delegation, traversal). Binds to every
- *                       .game-list on the page, but the handler only reacts to
- *                       .join-btn buttons, which exist only on list.html and in
- *                       search.html results. On pages without them it does nothing.
- *   initCommentForm   - detail.html: add a comment (submit).
- *                       Returns early on pages without .comment-form.
+ * RecPickup - CS 5774 Project 3
+ * Search results, Join buttons, and the comment form. Loaded on every page.
  */
 (function ($) {
   'use strict';
 
-  /* ---------- Simulated search (search.html) ---------- */
+  // ----- Search results (search.html) -----
 
-  // The one keyphrase that returns results. Every search box's placeholder hints at it.
+  // Only this phrase returns results
   var SEARCH_KEYPHRASE = 'tennis';
 
-  // Simulated results for the keyphrase, using the same fields the Browse rows show.
+  // Fake results for the keyphrase
   var TENNIS_GAMES = [
     { sport: 'Tennis', time: 'Wed, Sep 30, 5:00–6:30 pm', court: 'Tennis Court 1, Tennis Center', joined: 4, max: 4 },
     { sport: 'Tennis', time: 'Thu, Oct 1, 7:00–8:30 pm', court: 'Tennis Court 3, Tennis Center', joined: 3, max: 4 },
@@ -29,12 +18,7 @@
     { sport: 'Tennis', time: 'Sun, Oct 4, 9:00–10:30 am', court: 'Tennis Court 3, Tennis Center', joined: 2, max: 4 }
   ];
 
-  /**
-   * Builds one game row with the same markup as the rows in list.html,
-   * so it gets the existing .game styles and works with the Join handler.
-   * @param {{sport: string, time: string, court: string, joined: number, max: number}} game
-   * @returns {jQuery} a new li.game element (not yet in the page)
-   */
+  // Builds a game row with the same markup as the rows on list.html
   function buildGameRow(game) {
     var isFull = game.joined >= game.max;
     var $button = $('<button>', {
@@ -62,16 +46,12 @@
     );
   }
 
-  /**
-   * Adds a friendly "no results" box to the results section.
-   * @param {jQuery} $section the .search-results section
-   * @param {string} message first line; may contain user text, so it is set with text:
-   */
+  // Shows the no-results box. User input is only ever set as text.
   function showNoResults($section, message) {
     var $box = $('<div>', { 'class': 'panel-box no-results', role: 'status' }).append(
       $('<p>', { text: message }),
       $('<p>', { 'class': 'hint' }).append(
-        // Built from constants only; never pass user text to append().
+        // fixed text only here
         'Try searching for “' + SEARCH_KEYPHRASE + '”, or ',
         $('<a>', { href: 'list.html', text: 'browse all games' }),
         '.'
@@ -80,22 +60,18 @@
     $section.append($box);
   }
 
-  /**
-   * Reads the GET keyphrase (?q=...) and shows simulated results when it
-   * matches SEARCH_KEYPHRASE, or a friendly message when it does not.
-   */
+  // Reads ?q= from the URL and shows the results or a message
   function initSearchResults() {
     var $results = $('#search-results');
     if (!$results.length) {
       return; // not on search.html
     }
 
-    // The form uses GET, so the phrase arrives in the URL query string.
     var rawQuery = (new URLSearchParams(window.location.search).get('q') || '').trim();
     var query = rawQuery.toLowerCase();
     var $note = $('#results-note');
 
-    // Keep what the user typed in the header box so they can edit it.
+    // put the search back in the header box
     $('#header-search').val(rawQuery);
 
     switch (query) {
@@ -115,24 +91,17 @@
     }
   }
 
-  /* ---------- Interaction 1: Join a game (list.html, search.html) ---------- */
+  // ----- Join buttons (list.html, search.html) -----
 
-  /**
-   * One delegated click handler on each .game-list handles every Join button,
-   * including rows that search.html creates after the page loads.
-   * Clicking Join:
-   *   - modifies the row's existing count ("7 of 10" -> "8 of 10") and button ("Joined", disabled)
-   *   - adds a new status line under the row
-   */
+  // One click handler on the list handles every Join button, even rows added later
   function initJoinButtons() {
-    // Firefox restores a button's JS-set "disabled" state on reload; the page's
-    // Join buttons always start enabled. (Full buttons have no join-btn class.)
+    // Firefox can keep a button disabled after a reload, so start them enabled
     $('.join-btn').prop('disabled', false);
 
     $('.game-list').on('click', '.join-btn', function () {
       var $button = $(this);
 
-      // DOM traversal: up from the button to its row, then down to the row's count.
+      // go up to the game row, then down to its count
       var $game = $button.closest('.game');
       var $count = $game.find('.game-count');
 
@@ -143,11 +112,11 @@
       var joined = parseInt(match[1], 10) + 1;
       var max = parseInt(match[2], 10);
 
-      // Modify existing elements.
+      // update the count and the button
       $count.text(joined + ' of ' + max + ' joined');
       $button.text('Joined').prop('disabled', true).removeClass('join-btn');
 
-      // Add a new element that did not exist before.
+      // add the "You're in" line under the row
       var $status = $('<p>', { 'class': 'joined-status', role: 'status' }).append(
         'You\'re in. ',
         $('<a>', { href: 'home-signed-in.html', text: 'See your games' })
@@ -156,17 +125,12 @@
     });
   }
 
-  /* ---------- Interaction 2: Add a comment (detail.html) ---------- */
+  // ----- Comment form (detail.html) -----
 
-  // The signed-in student in this prototype (see "Welcome back, Maya" on the dashboard).
+  // signed-in user in this prototype
   var CURRENT_USER = 'Maya';
 
-  /**
-   * Submitting the comment form adds the comment to the list without a server:
-   *   - adds a new li.comment at the end of the existing list
-   *   - modifies the existing text box: clears it and changes its placeholder
-   * A blank comment is ignored.
-   */
+  // Adds the comment to the list and resets the text box. Empty comments are ignored.
   function initCommentForm() {
     var $form = $('.comment-form');
     if (!$form.length) {
@@ -174,7 +138,7 @@
     }
 
     $form.on('submit', function (event) {
-      event.preventDefault(); // no back end: keep the comment on this page
+      event.preventDefault(); // no server, so stay on this page
 
       var $input = $('#comment-text');
       var text = String($input.val()).trim();
@@ -183,7 +147,7 @@
         return;
       }
 
-      // Add a new element: a comment built with the same markup as the existing ones.
+      // same markup as the existing comments
       var $comment = $('<li>', { 'class': 'comment' }).append(
         $('<p>', { 'class': 'comment-author', text: CURRENT_USER + ' ' }).append(
           $('<time>', { datetime: new Date().toISOString(), text: 'Just now' })
@@ -192,12 +156,11 @@
       );
       $('.comment-list').append($comment);
 
-      // Modify an existing element: reset the text box for the next comment.
+      // clear the box for the next comment
       $input.val('').attr('placeholder', 'Add another comment').trigger('focus');
     });
   }
 
-  // Run page setup once the DOM is ready.
   $(function () {
     initSearchResults();
     initJoinButtons();

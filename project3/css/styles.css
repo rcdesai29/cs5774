@@ -961,7 +961,7 @@ legend {
   margin-top: 0.75rem;
 }
 
-/* Header search (Project 3): compact form between the nav and the account link */
+/* Header search */
 .header-search {
   margin-right: 2.25rem;
 }
@@ -979,13 +979,13 @@ legend {
   margin-top: 0.5rem;
 }
 
-/* User-typed text (comments, search terms) can contain long unbroken words or URLs */
+/* Wrap long words in comments and search terms */
 .comment p,
 .no-results p {
   overflow-wrap: anywhere;
 }
 
-/* Under 960px the header search no longer fits beside the nav, so it gets its own row */
+/* Header search gets its own row below 960px */
 @media (max-width: 959px) {
   .header-inner {
     flex-wrap: wrap;
@@ -1002,7 +1002,7 @@ legend {
   }
 }
 
-/* Join confirmation line added under a game row (Project 3) */
+/* "You're in" line under a joined game */
 .game-list .game {
   row-gap: 0.5rem;
 }
